@@ -19,9 +19,13 @@ export const authOptions = {
                     number: credentials.phone
                 }
             });
-
+            console.log(existingUser)
             if (existingUser) {
+                console.log(credentials.password)
+                console.log(existingUser.password)
                 const passwordValidation = await bcrypt.compare(credentials.password, existingUser.password);
+                
+                console.log(passwordValidation)
                 if (passwordValidation) {
                     return {
                         id: existingUser.id.toString(),

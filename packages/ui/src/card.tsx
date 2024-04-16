@@ -7,8 +7,7 @@ export function Card({
 }): JSX.Element {
   return (
     <div
-      className="p-4"
-    >
+      className="shadow-lg p-4">
       
       {children}
     </div>

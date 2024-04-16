@@ -1,10 +1,10 @@
 "use client";
 
-import { useBalance } from "@repo/store/balance";
-
+// import { useBalance } from "@repo/store";
+import db from "@repo/db/client"
 export default function() {
-  const balance = useBalance();
+  // const balance = useBalance();
   return <div>
-    hi there {balance}
+    hi there 
   </div>
 }
