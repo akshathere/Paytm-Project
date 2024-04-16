@@ -1,4 +1,5 @@
 import { AddMoney } from "../../../components/AddMoney";
+import { OnRampTransaction } from "../../../components/OnrampTrans";
 import { Balance } from "../../../components/balance";
 
 export default function() {
@@ -13,7 +14,9 @@ export default function() {
         </div>
         <div className="col-span-2" >
             <Balance></Balance>
+            <OnRampTransaction></OnRampTransaction>
         </div>
+        
     </div>
     </div>
 }
