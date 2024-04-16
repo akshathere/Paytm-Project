@@ -11,7 +11,7 @@ export default function() {
         
         <AddMoney></AddMoney>
         </div>
-        <div className="w-full" >
+        <div className="col-span-2" >
             <Balance></Balance>
         </div>
     </div>
