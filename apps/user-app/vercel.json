@@ -1,9 +1,0 @@
-{
-    "buildCommand":"cd ../.. && npm run build-user-app",
-    "crons":[
-        {
-            "path":"/api/crons",
-            "schedule":"0 0 * * *"
-        }
-    ]
-}
