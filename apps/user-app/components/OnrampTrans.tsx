@@ -19,7 +19,7 @@ async function getTransactions(){
 }
 export async function OnRampTransaction(){
     const res=await getTransactions();
-    console.log(res[0]?.status=='failure',"cec")
+    console.log(res[0]?.status=='success',"cec")
     if(!res.length){
         return <div>
             <div className="text-xl p-2">
