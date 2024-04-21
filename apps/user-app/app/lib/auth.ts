@@ -14,6 +14,9 @@ export const authOptions = {
           async authorize(credentials: any) {
             // Do zod validation, OTP validation here
             const hashedPassword = await bcrypt.hash(credentials.password, 10);
+            try{
+
+            
             const existingUser = await db.user.findFirst({
                 where: {
                     number: credentials.phone
@@ -35,6 +38,10 @@ export const authOptions = {
                 }
                 return null;
             }
+        }catch(e){
+            console.log("there is error in authentication")
+        }
+            
 
             try {
                 const user = await db.user.create({
