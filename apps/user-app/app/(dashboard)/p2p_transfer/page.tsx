@@ -32,7 +32,7 @@ export default function SendCard() {
             ></input>
             <div className="pt-4 flex justify-center">
               <Button onClick={()=>{
-                p2pTranfer(number,amount)}}>Send</Button>
+                p2pTranfer(number,Number(amount)*100)}}>Send</Button>
             </div>
           </div>
         </Card>

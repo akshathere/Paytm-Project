@@ -4,7 +4,7 @@ import prisma from "@repo/db/client";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth";
 
-export async function p2pTranfer(number:string, amount: string) {
+export async function p2pTranfer(number:string, amount: number) {
     // Ideally the token should come from the banking provider (hdfc/axis)
     const session = await getServerSession(authOptions);
     if (!session?.user || !session.user?.id) {
@@ -12,6 +12,7 @@ export async function p2pTranfer(number:string, amount: string) {
             message: "Unauthenticated request"
         }
     }
+    console.log("im here buddy")
     const user2=await prisma.user.findFirst({
         where:{
             number
@@ -22,7 +23,8 @@ export async function p2pTranfer(number:string, amount: string) {
             msg:"User with number not found"
         }
     }
-    
+    console.log(session?.user,"user1")
+    console.log(user2,"user2")
     
     try{
 
@@ -60,7 +62,16 @@ export async function p2pTranfer(number:string, amount: string) {
                 }
             }
         })
-    
+        await tx.p2Ptrans.create({
+            data:{
+                toUserId:user2.id,
+                fromUserId:Number(session?.user?.id),
+                amount:Number(amount),
+                time: new Date(),
+                from:String(session?.user?.name),
+                to:String(user2.name)
+            }
+        })
 
     })
 
